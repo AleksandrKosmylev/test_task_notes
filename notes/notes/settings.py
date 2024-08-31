@@ -88,11 +88,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_tDmsiN0Y3pgUJouPlOL',
-        'HOST': 'pg-1ec41422-alex-f02e.c.aivencloud.com',
+        'PASSWORD': 'AVNS_ETkb-n6iDSRfqqLXFM2',
+        'HOST': 'pg-349d87bb-alex-f02e.h.aivencloud.com',
         'PORT': '10072'
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
