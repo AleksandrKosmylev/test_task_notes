@@ -1,25 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from notebook.models import Notes
 from notebook.serializers import NotesSerializer
 
 
-@csrf_exempt
-def snippet_list(request):
+@api_view(['GET', 'POST'])
+def notes_list(request):
     """
-    List all code notes, or create a new note.
+    List all notes, or create a new note.
     """
     if request.method == 'GET':
         list_notes = Notes.objects.all()
         serializer = NotesSerializer(list_notes, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
 
     elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = NotesSerializer(data=data)
+        serializer = NotesSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
