@@ -9,6 +9,11 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from dotenv import load_dotenv
+import os
+
+
+load_dotenv()
 
 from pathlib import Path
 
@@ -20,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-47=vx-5d)&p*@co9ayud8+=s7d4n@pt4x8qrx!iurx)3a+*4!#'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DB_KEY = os.environ.get('DB_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -88,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
-        'PASSWORD': 'AVNS_ETkb-n6iDSRfqqLXFM2',
+        'PASSWORD': DB_KEY,
         'HOST': 'pg-349d87bb-alex-f02e.h.aivencloud.com',
         'PORT': '10072'
     }
