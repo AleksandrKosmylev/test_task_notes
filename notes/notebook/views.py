@@ -6,23 +6,12 @@ from notebook.serializers import NotesSerializer, UserSerializer
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework import permissions
+from django.http import HttpResponse
 
-"""
-@api_view(['GET', 'POST'])
-def notes_list(request):
-
-    if request.method == 'GET':
-        list_notes = Notes.objects.all()
-        serializer = NotesSerializer(list_notes, many=True)
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = NotesSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-"""
+def main(request):
+    return HttpResponse(
+        '<p>Hello Tests_task! Check notes/</p>'
+                        )  
 
 
 class NotesList(generics.ListCreateAPIView):
