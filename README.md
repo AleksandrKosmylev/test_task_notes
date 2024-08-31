@@ -2,9 +2,7 @@
 
  Команды для запуска:
  
-git@github.com:AleksandrKosmylev/test_task_notes.git
-
-git@github.com:AleksandrKosmylev/test_task_notes.git
+git clone git@github.com:AleksandrKosmylev/test_task_notes.git
 
 cd test_task_notes/
 
