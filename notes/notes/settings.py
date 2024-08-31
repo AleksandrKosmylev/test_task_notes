@@ -26,7 +26,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-DB_KEY = os.environ.get('DB_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -94,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'defaultdb',
         'USER': 'avnadmin',
-        'PASSWORD': DB_KEY,
+        'PASSWORD': 'AVNS_ETkb-n6iDSRfqqLXFM2',
         'HOST': 'pg-349d87bb-alex-f02e.h.aivencloud.com',
         'PORT': '10072'
     }
